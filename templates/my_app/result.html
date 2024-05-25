@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block content %}
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% if jobs %}
+  {% for job in jobs %}
+  <div class="col">
+
+      <div class="card h-100">
+
+          <div class="card-body">
+              <h5 class="card-title">{{job.title}}</h5>
+
+              <p class="card-text">Job Location: {{job.location}}</p>
+              <p class="card-text">Experience: {{job.min_experience}}-{{job.max_experience}}</p>
+              <p class="card-text">{{job.salary|intcomma}}</p>
+              <p class="card-text">Posted by: {{job.company}}</p>
+              {% if request.user.is_authenticated %}
+              <a href="{% url 'job-details' job.pk %}" class="btn btn-primary btn">View details</a>
+              {% else %}
+              <a href="{% url 'login' %}" class="btn btn-primary btn">View details</a>
+              {% endif %}
+
+          </div>
+          
+          <div class="card-footer">
+
+              <small class="text-muted">Created {{job.timestamp |naturaltime}}</small>
+
+          </div>
+          
+      </div>
+
+  </div>
+  {% endfor %}
+  <!-- {% endif %} -->
+</div>
+<!-- {% if jobs %}
+  {% for job in jobs %}
+    <div class="job-container">
+      <h2>{{ job.title }}</h2>
+      <p>Location: {{ job.location }}</p>
+      <p>Experience: {{ job.min_experience }}-{{ job.max_experience }} years</p>
+      <p>Salary: {{ job.salary | intcomma }}</p>
+      <p>Company: {{ job.company }}</p>
+      <a href="{% url 'job-details' job.pk %}">View details</a>
+    </div>
+  {% endfor %} -->
+{% else %}
+  <p>No jobs found.</p>
+{% endif %}
+
+{% endblock content %}
