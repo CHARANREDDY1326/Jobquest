@@ -3,7 +3,28 @@
 {% load widget_tweaks %}
 
 {% block content %}
-
+<style>
+    .form-fields,
+      label{
+       font-family: cursive;
+       color: rgb(71, 6, 97);
+       
+      }
+      .card-title{
+   font-weight: 700;
+ }
+ .row{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+ .btn{
+       background-color: rgb(253, 175, 74);
+       box-shadow: 3px 3px 10px gray;
+       font-weight: 500;
+       font-family: cursive;
+   }
+   </style>
 <div class="row">
     <div class="col-md-6">
         <div class="card mx-auto" style="width: 40rem;">
@@ -46,16 +67,13 @@
                         {% render_field form.requirements|attr:"rows:2" class="form-control" %}
                         
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Ideal Candidate</label>                        
-                        {% render_field form.ideal_candidate|attr:"rows:2" class="form-control" %}                        
-                    </div>
+                    
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Is this job available</label>                        
                         {% render_field form.is_available class="form-check-input" %}                        
                     </div>
 
-                    <button type="submit" class="btn btn-primary"> Submit</button>
+                    <button type="submit" class="btn "> Submit</button>
 
                 </form>
             </div>

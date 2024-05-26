@@ -4,13 +4,62 @@
 
 
 {% block content %}
+<style>
+    .search-container{
+    background: linear-gradient(to right, rgb(214,194,236),rgb(168, 157, 180) );
+    box-shadow: 5px 3px 20px gray;
+    border-radius: 15px !important;
+   
+    }
+  .card-title{
+    font-weight: 700;
+  }
+    .btn{
+        background-color: rgb(253, 175, 74);
+        box-shadow: 3px 3px 10px gray;
+        font-weight: 500;
+        font-family: cursive;
+    }
+    
+    .display-5{
+        color: rgb(117,92,187) !important;
+        font-family: cursive;
+
+    }
+    .search-bar{
+        background: rgb(214,194,236) !important;
+        box-shadow: 3px 3px 10px gray;
+    }
+    .col-md-8{
+      font-weight: bold;
+        color: rgb(134,66,160);
+        font-family: "Papyrus",fantasy;
+    }
+    .list-of-jobs{
+    background: linear-gradient(60deg, rgb(214,194,236),rgb(168, 157, 180) );
+        box-shadow: 3px 3px  0 gray;  
+     }
+     
+       .form-fields,
+       label{
+        font-family: cursive;
+        color: rgb(71, 6, 97);
+        
+       }
+       .text-muted{
+        font-weight: 500 !important;
+       }
+       .card-footer{
+        box-shadow: 3px 3px  5px gray;  
+       }
+</style>
 
 <section>
-    <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="p-5 mb-4 search-container rounded-3  ">
         <div class="container-fluid py-5">
-            <h2 class="display-5 fw-bold">jobQuest, get hired quickly</h2> <br>
+            <h2 class="display-5 fw-bold">JobQuest, get hired quickly</h2> <br>
             <div class="card">
-                <div class="card-body">
+                <div class="card-body search-bar">
                     <form class="row gy-2 gx-3 align-items-center" method="GET">
                         <div class="col-sm-2">
                             <label for="autoSizingInput">Name</label>
@@ -33,7 +82,7 @@
                             {% render_field filter.form.industry class="form-control" %}
                         </div>
                         <div class="col-auto">
-                            <button typr="submit" class="btn btn-primary">Search</button>
+                            <button type="submit" class="btn ">Search</button>
                         </div>
                     </form>
 
@@ -44,21 +93,18 @@
             <p class="col-md-8 fs-6 mt-3">
 
                 Welcome to JobQuest! Search and get your dream job. We have thousands of job offerings for you.
-                Don't forget to leave a like when you get a job. Goodluck with you
-
-                hunt!
-
+                Find your dream job. Goodluck with the hunt!
 
 
             </p>
-            <button class="btn btn-outline-primary" type="button" onclick="window.location.href='{% url 'job-listing' %}'">More Jobs </button>
+            <button class="btn " type="button" onclick="window.location.href='{% url 'job-listing' %}'">More Jobs </button>
 
         </div>
 
 
 
     </div>
-
+    
 </section>
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -68,14 +114,14 @@
 
         <div class="card h-100">
 
-            <div class="card-body">
+            <div class="card-body list-of-jobs ">
                 <h5 class="card-title">{{job.title}}</h5>
-                <p class="card-text">Industry: {{job.industry}}</p>
-                <p class="card-text">Job Type: {{job.job_type}}</p>
-                <p class="card-text">Location: {{job.city}},{{job.state}}</p>
-                <p class="card-text">Salary: {{job.salary}}</p>
-                <p class="card-text">Experience: {{job.min_experience}}-{{job.max_experience}}</p>
-                <a href="{% url 'login'  %}" class="btn btn-primary btn">View details</a>
+                <p class="card-text"><span class="form-fields">Industry:</span> {{job.industry}}</p>
+                <p class="card-text"><span class="form-fields">Job Type: </span>{{job.job_type}}</p>
+                <p class="card-text"><span class="form-fields">Location: </span>{{job.city}},{{job.state}}</p>
+                <p class="card-text"><span class="form-fields">Salary: </span> {{job.salary}}</p>
+                <p class="card-text"><span class="form-fields">Experience: </span>{{job.min_experience}}-{{job.max_experience}}</p>
+                <a href="{% url 'login'  %}" class="btn ">View details</a>
 
             </div>
 

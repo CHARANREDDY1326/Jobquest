@@ -5,6 +5,28 @@
 
 
 {% block content %}
+<style>
+     .form-fields,
+       label{
+        font-family: cursive;
+        color: rgb(71, 6, 97);
+        
+       }
+       .card-title{
+    font-weight: 700;
+  }
+  .row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn{
+        background-color: rgb(253, 175, 74);
+        box-shadow: 3px 3px 10px gray;
+        font-weight: 500;
+        font-family: cursive;
+    }
+</style>
 <div class="row">
     <div class="col-md-6">
         <div class="card mx-auto" style="width: 40rem;">
@@ -34,10 +56,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Description</label>                        
-                        <textarea class="form-control" id="exampleFormControlTextareal" rows="3"></textarea>                        
+                        <textarea class="form-control" id="exampleFormControlTextareal" rows="3"></textarea> 
+                                            
                     </div>
 
-                    <button type="submit" class="btn btn-primary"> Submit</button>
+                    <button type="submit" class="btn"> Submit</button>
 
                 </form>
             </div>
