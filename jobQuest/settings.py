@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-fvws2%e!x6cvbgyne+yulr8&yln$8vw&km+o7y5c0857y#4g-+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
@@ -85,10 +85,15 @@ WSGI_APPLICATION = 'jobQuest.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'job_quest',
+        'USER': 'root',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',  # Or the MySQL host IP
+        'PORT': '3306',  # Default MySQL port
     }
 }
+
 
 
 # Password validation
